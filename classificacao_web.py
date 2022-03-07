@@ -3,18 +3,21 @@ import csv
 
 def carregar_acessos():
 
-    dados = []
-    marcacoes = []
+    x = []
+    y = []
 
     arquivo = open('acesso.csv', 'r')
     leitor = csv.reader(arquivo)
+
+    next(leitor)
+
     for acessou_home,acessou_como_funciona,acessou_contato,comprou in leitor:
 
-        dados.append([acessou_home,acessou_como_funciona,
-                      acessou_contato])
+        x.append([int(acessou_home),int(acessou_como_funciona),
+                      int(acessou_contato)])
 
-        marcacoes.append(comprou)
+        y.append(int(comprou))
 
 
-    return dados, marcacoes
+    return x, y
 
